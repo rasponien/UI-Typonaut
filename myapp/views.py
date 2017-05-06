@@ -1,8 +1,10 @@
 from django.shortcuts import render
-from .models import Sentence
 from django.http import JsonResponse
+from .models import Sentence, Score
 import json
 import random
+from .constants import BRONZE, SILVER, GOLD
+
 def home(request):
     return render(request,"index.html")
 
