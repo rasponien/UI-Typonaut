@@ -5,6 +5,7 @@ def score(usertyped, actual, time):
     CHAR_SCORE = 100
     TIME_PENALTY = 50
     lav = distance.levenshtein(usertyped, actual) # levenshtein distance between strings
-    score = len(usertyped) * CHAR_SCORE * 1.01 ** len(usertyped) - CHAR_SCORE * lav * 1.3 ** lav
+    l = min(len(usertyped), len(actual))
+    score = l * CHAR_SCORE * 1.01 ** l - CHAR_SCORE * lav * 1.3 ** lav
     score -= TIME_PENALTY * time
     return score
