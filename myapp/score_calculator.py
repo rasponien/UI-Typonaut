@@ -1,5 +1,5 @@
 import distance # pip install distance
-from myapp.constants import BRONZE, SILVER, GOLD
+from myapp.constants import BRONZE, SILVER, GOLD, NONE
 LPS_GOLD = 7
 LPS_SILVER = 5
 LPS_BRONZE = 2.5
@@ -23,7 +23,7 @@ def score(usertyped, actual, time):
     elif score > bronze_score:
         medal = BRONZE
     else:
-        medal = None
+        medal = NONE
     return max(score,0), medal, gold_score, silver_score, bronze_score, score_lost_from_mistakes
 
 def calc_medal_score(lps, length, mistakes):
