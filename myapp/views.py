@@ -34,14 +34,15 @@ def submit(request):
         time = float(request.POST["time"])
         quote = Sentence.objects.get(id=request.POST["id"])
         actual = quote.sentence
-        score, medal, gold_score, silver_score, bronze_score = myapp.score_calculator.score(answer, actual, time)
+        score, medal, gold_score, silver_score, bronze_score, lost_score = myapp.score_calculator.score(answer, actual, time)
 
         score_entry = Score(time=time, sentence_id=quote,user_name=request.POST["name"],medal=medal)
         score_entry.save()
 
         return JsonResponse({"success":True, "score": score, "medal":MEDALS[medal][1],
-                             "gold_score":gold_score,
-                             "silver_score": silver_score,
-                             "bronze_score": bronze_score})
+                             "lost_score"   : lost_score,
+                             "gold_score"   : gold_score,
+                             "silver_score" : silver_score,
+                             "bronze_score" : bronze_score})
     else:
         return JsonResponse({"success":False,"message":"Missing parameters"})

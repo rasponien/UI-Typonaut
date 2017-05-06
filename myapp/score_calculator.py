@@ -10,7 +10,8 @@ def score(usertyped, actual, time):
     "Score is exponentially bigger with word lenth and exponentially reduced by number of errors"
     lav = distance.levenshtein(usertyped, actual) # how different user's answer from the actual sentence
     l = min(len(usertyped), len(actual))
-    score = l * CHAR_SCORE * 1.01 ** l - MISTAKE_SCORE * lav * 1.3 ** lav - time * TIME_PENALTY
+    score_lost_from_mistakes = MISTAKE_SCORE * lav * 1.3 ** lav
+    score = l * CHAR_SCORE * 1.01 ** l - score_lost_from_mistakes - time * TIME_PENALTY
     score = round(score, 0)
     gold_score      = calc_medal_score(LPS_GOLD,    len(actual),0)
     silver_score    = calc_medal_score(LPS_SILVER,  len(actual),2)
@@ -23,7 +24,7 @@ def score(usertyped, actual, time):
         medal = BRONZE
     else:
         medal = None
-    return max(score,0), medal, gold_score, silver_score, bronze_score
+    return max(score,0), medal, gold_score, silver_score, bronze_score, score_lost_from_mistakes
 
 def calc_medal_score(lps, length, mistakes):
     expected_time = length / lps

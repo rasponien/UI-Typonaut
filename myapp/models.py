@@ -11,4 +11,4 @@ class Score(models.Model):
     user_name = models.CharField(max_length=255)
     datetime = models.DateTimeField(auto_now_add=True,null=True)
     time = models.FloatField()
-    medal = models.PositiveSmallIntegerField(choices=MEDALS)
+    medal = models.PositiveSmallIntegerField(choices=MEDALS, null=True)
