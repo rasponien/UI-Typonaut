@@ -19,5 +19,7 @@ import myapp.views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'', myapp.views.home),
+    url(r'^$', myapp.views.home),
+    url(r'^game/$', myapp.views.game),
+    url(r'^game/getquote/$', myapp.views.getQuote),
 ]
