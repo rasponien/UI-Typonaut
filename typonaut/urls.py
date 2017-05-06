@@ -22,4 +22,5 @@ urlpatterns = [
     url(r'^$', myapp.views.home),
     url(r'^game/$', myapp.views.game),
     url(r'^game/getquote/$', myapp.views.getQuote),
+    url(r'^game/submit/$', myapp.views.submit),
 ]
