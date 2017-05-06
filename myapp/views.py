@@ -3,6 +3,9 @@ import json
 from .models import Sentence, Score
 from .constants import BRONZE, SILVER, GOLD
 
+def home(request):
+    return render(request,"index.html")
+
 def readJSONToDatabase():
 
     with open('quotes.json') as data_file:
