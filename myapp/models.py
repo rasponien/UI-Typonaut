@@ -1,5 +1,5 @@
 from django.db import models
-from .constants import MEDALS
+from .constants import MEDALS, WPM_BRONZE, WPM_GOLD, WPM_SILVER
 
 # Create your models here.
 class Sentence(models.Model):
@@ -20,7 +20,7 @@ class Score(models.Model):
 def calculate_medal_times(sentence):
     words_count = len(sentence.split())
     return {
-        'bronze' : (60/23) * words_count,
-        'silver' : (60/40) * words_count,
-        'gold' : (60/50) * words_count
+        'bronze' : (60/WPM_BRONZE) * words_count,
+        'silver' : (60/WPM_SILVER) * words_count,
+        'gold' : (60/WPM_GOLD) * words_count
     }
