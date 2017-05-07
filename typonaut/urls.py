@@ -21,6 +21,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', myapp.views.home),
     url(r'^game/$', myapp.views.game),
-    url(r'^game/getquote/$', myapp.views.getQuote),
-    url(r'^game/submit/$', myapp.views.submit),
+    url(r'^getquote/$', myapp.views.getQuote),
+    url(r'^submit/$', myapp.views.submit),
 ]
