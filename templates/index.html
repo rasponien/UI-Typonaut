@@ -3,22 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <!-- Bootstrap-->
+    {% load static %}
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'style/index.css' %}">
     <title>Typonaut</title>
 </head>
 <body>
+    <div id="main-container">
+        <div id="game-name-container">
+            <div id="upper-half-circle">
+                <h1 id="game-name"> TYPONAUT </h1>
+            </div>
+            <div id="lower-half-circle"></div>
 
-<div class="container">
-    <nav class="navbar navbar-toggleable-md bg-faded">
-          <a class="navbar-brand" href="/">Typonaut</a>
-    </nav>
-<ul class="list-group text-center ">
-  <li class="list-group-item"><a href="game">New game</a></li>
-  <li class="list-group-item"><a href="highscores">High scores</a></li>
-</ul>
-
-</div>
-
+        </div>
+        <div id="main-options">
+            <div class="menu-option">
+                <a href="game">New game</a>
+            </div>
+            <div class="menu-option">
+                <a href="highscores">High scores</a>
+            </div>
+        </div>
+    </div>
 
 <!-- Jquery, thether and bootstrap js -->
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
