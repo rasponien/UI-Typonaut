@@ -80,13 +80,16 @@
     -webkit-border-radius: 15px;
     -moz-border-radius: 15px;
     border-radius: 15px;
+
+    -webkit-animation-delay: 0.2s; /* Safari 4.0 - 8.0 */
+    animation-delay: 0.2s;
 }
 
 .menu-option:hover {
     background-color: #ad0b35;
-    -webkit-transition: background-color 500ms linear;
-    -ms-transition: background-color 500ms linear;
-    transition: background-color 500ms linear;
+    -webkit-transition: background-color 300ms linear;
+    -ms-transition: background-color 300ms linear;
+    transition: background-color 300ms linear;
 }
 
 a {

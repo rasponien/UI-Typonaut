@@ -6,22 +6,23 @@
     {% load static %}
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'style/index.css' %}">
+    <link rel="stylesheet" href="{% static 'style/animate.css' %}">
     <title>Typonaut</title>
 </head>
 <body>
     <div id="main-container">
         <div id="game-name-container">
-            <div id="upper-half-circle">
+            <div class="animated bounceInLeft" id="upper-half-circle">
                 <h1 id="game-name"> TYPONAUT </h1>
             </div>
-            <div id="lower-half-circle"></div>
+            <div class="animated bounceInRight" id="lower-half-circle"></div>
 
         </div>
-        <div id="main-options">
-            <div class="menu-option">
+        <div id="main-options" class="animated fadeIn">
+            <div class="menu-option animated zoomIn">
                 <a href="game">New game</a>
             </div>
-            <div class="menu-option">
+            <div class="menu-option animated zoomIn">
                 <a href="highscores">High scores</a>
             </div>
         </div>
