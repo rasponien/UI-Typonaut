@@ -36,7 +36,7 @@ def submit(request):
         actual = quote.sentence
         score, medal, gold_score, silver_score, bronze_score, lost_score = myapp.score_calculator.score(answer, actual, time)
 
-        score_entry = Score(time=time, sentence_id=quote,user_name=request.POST["name"],medal=medal)
+        score_entry = Score(time=time, sentence_id=quote,user_name=request.POST["name"],medal=medal, score=score)
         score_entry.save()
 
         return JsonResponse({"success":True, "score": score, "medal":MEDALS[medal][1],
