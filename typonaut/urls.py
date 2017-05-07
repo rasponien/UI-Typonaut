@@ -21,12 +21,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', myapp.views.home),
     url(r'^game/$', myapp.views.game),
-<<<<<<< HEAD
     url(r'^getquote/$', myapp.views.getQuote),
     url(r'^submit/$', myapp.views.submit),
-=======
-    url(r'^game/getquote/$', myapp.views.getQuote),
-    url(r'^game/submit/$', myapp.views.submit),
     url(r'^highscores/$', myapp.views.highscores),
->>>>>>> 41cd820ce2d29db093b19a76135f35566a5f4b92
-]
+    ]
