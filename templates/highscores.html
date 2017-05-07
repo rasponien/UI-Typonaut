@@ -3,10 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Typonaut Highscores</title>
+    {% load static %}
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+     <link rel="stylesheet" href="style/highscores.css">
+     <link rel="stylesheet" href="{% static 'style/highscores.css' %}">
 </head>
 <body>
 
     <p>Testing Highscores.</p>
 
+
+    <table style="width:60%"class="table table-bordered">
+        <tr>
+            <td style=>Username</td>
+            <td>Time</td>
+            <td>Score</td>
+        </tr>
+        {%for position in highscores%}
+        <tr>
+            <td>{{position.user_name}}</td>
+            <td>{{position.time}}</td>
+            <td>{{position.score}}</td>
+        </tr>
+        {% endfor %}
+    </table>
 </body>
 </html>

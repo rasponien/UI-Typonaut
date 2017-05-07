@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, render_to_response
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from .models import Sentence, Score
@@ -10,16 +10,40 @@ import myapp.score_calculator
 def home(request):
     return render(request,"index.html")
 
+
+
 def highscores(request):
-    counter= 0
-    highscores = Score.objects.all()[0]
-    print("User name :", highscores.user_name, "| Time : ", highscores.time, "| Medal : ", highscores.get_medal_display())
+    players = []
+    # highscores = []
+    # highscores = Score.objects.all()
+    highscores = makeLeaderboard()
+    # for person in highscores:
+    #     print("User name :", person.user_name, "| Time : ", person.time, "| Medal : ", person.get_medal_display(),
+    #           "| Score : ", person.score)
+    #     players.append(person.user_name)
+    return render(request,"highscores.html",{"highscores": highscores})
 
-    # for score in highscores:
-    #     # print('Tere')
-    #     print("User name :" ,score.user_name, "| Time : ", score.time ,"| Medal : " ,score.get_medal_display())
-    return render(request,"highscores.html")
 
+def makeLeaderboard():
+    scores = []
+    things = []
+    highscores = Score.objects.all()
+    for score in highscores:
+        scores.append(score.score)
+    scores.sort(reverse=True)
+    for i in range (len(scores)):
+        for person in highscores:
+            if(scores[i] == person.score):
+                things.append(person)
+                break
+
+    return things
+
+
+
+
+
+    return objects
 def readJSONToDatabase():
     with open('quotes.json') as data_file:
         data = json.load(data_file)
@@ -46,7 +70,7 @@ def submit(request):
         actual = quote.sentence
         score, medal, gold_score, silver_score, bronze_score, lost_score = myapp.score_calculator.score(answer, actual, time)
 
-        score_entry = Score(time=time, sentence_id=quote,user_name=request.POST["name"],medal=medal)
+        score_entry = Score(time=time, sentence_id=quote,user_name=request.POST["name"],medal=medal, score=score)
         score_entry.save()
 
         return JsonResponse({"success":True, "score": score, "medal":MEDALS[medal][1],

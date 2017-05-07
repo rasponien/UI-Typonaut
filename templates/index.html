@@ -15,15 +15,22 @@
             <div class="animated bounceInLeft" id="upper-half-circle">
                 <h1 id="game-name"> TYPONAUT </h1>
             </div>
+            <div id="middle-part">
+                <div id="register-form" class="animated zoomIn">
+                    <div id="register-name">Your nickname for the leaderboard:</div>
+                    <input type="text" id="namefield" class="col-12" autofocus>
+                    <button class="btn btn-primary" onclick="registerName()">Play</button>
+                </div>
+            </div>
             <div class="animated bounceInRight" id="lower-half-circle"></div>
 
         </div>
         <div id="main-options" class="animated fadeIn">
             <div class="menu-option animated zoomIn">
-                <a href="game">New game</a>
+                <a id="new-game" href="#">New game</a>
             </div>
             <div class="menu-option animated zoomIn">
-                <a href="highscores">High scores</a>
+                <a id="heighscores" href="highscores">High scores</a>
             </div>
         </div>
     </div>
@@ -32,5 +39,7 @@
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="{% static 'js/main.js' %}"></script>
 </body>
 </html>

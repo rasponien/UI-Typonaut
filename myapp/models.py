@@ -12,3 +12,4 @@ class Score(models.Model):
     datetime = models.DateTimeField(auto_now_add=True,null=True)
     time = models.FloatField()
     medal = models.PositiveSmallIntegerField(choices=MEDALS, null=True)
+    score = models.FloatField(default=0)
