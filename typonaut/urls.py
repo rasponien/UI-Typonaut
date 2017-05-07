@@ -23,4 +23,5 @@ urlpatterns = [
     url(r'^game/$', myapp.views.game),
     url(r'^game/getquote/$', myapp.views.getQuote),
     url(r'^game/submit/$', myapp.views.submit),
+    url(r'^highscores/$', myapp.views.highscores),
 ]

@@ -10,6 +10,16 @@ import myapp.score_calculator
 def home(request):
     return render(request,"index.html")
 
+def highscores(request):
+    counter= 0
+    highscores = Score.objects.all()[0]
+    print("User name :", highscores.user_name, "| Time : ", highscores.time, "| Medal : ", highscores.get_medal_display())
+
+    # for score in highscores:
+    #     # print('Tere')
+    #     print("User name :" ,score.user_name, "| Time : ", score.time ,"| Medal : " ,score.get_medal_display())
+    return render(request,"highscores.html")
+
 def readJSONToDatabase():
     with open('quotes.json') as data_file:
         data = json.load(data_file)
