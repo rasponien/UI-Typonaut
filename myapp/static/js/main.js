@@ -79,7 +79,8 @@ function registerName() {
         if (counter == 0) {
             // Display a login box
             $("#game-container").show();
-            $('#game-timer-container').hide();
+             $('#game-timer').removeClass("fadeIn")
+             $('#game-timer').addClass("fadeOut")
             $("#game").addClass("animated bounceInLeft");
             console.log(gameObject);
 
