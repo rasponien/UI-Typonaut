@@ -16,7 +16,6 @@ def highscores(request):
     players = []
     # highscores = []
     # highscores = Score.objects.all()
-    print("teereteere")
     highscores = makeLeaderboard()
     # for person in highscores:
     #     print("User name :", person.user_name, "| Time : ", person.time, "| Medal : ", person.get_medal_display(),
@@ -29,7 +28,6 @@ def makeLeaderboard():
     scores = []
     things = []
     highscores = Score.objects.all()
-    print("terasdfasasdfasfsade")
     for score in highscores:
         scores.append(score.score)
     scores.sort(reverse=True)

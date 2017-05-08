@@ -24,6 +24,10 @@ $("#new-game").click(function () {
         $("#register-form").animate({
             opacity: 1
         }, { duration: 1000, queue: true });
+
+
+
+
     });
 });
 
@@ -50,20 +54,40 @@ function registerName() {
     $("#messagebox").text("Your name is set as: " + name);
     $(".namecontainer").fadeOut();
     $("#messagebox").removeClass("hidden");
+
     setTimeout(function () {
         $("#messagebox").fadeOut();
         setTimeout(function (){
             $("#messagebox").addClass("hidden")
         }, 1000);
     },3000);
+
+
+
     gameObject.name = name;
+
     $("#main-container").hide();
-    $("#game-container").show();
-    $("#game").addClass("animated bounceInLeft");
+    var counter = 3;
 
-    console.log(gameObject);
 
-    startGame()
+    $('#game-timer-container').show();
+    $('#game-timer').addClass("animated fadeIn")
+    var interval = setInterval(function() {
+        counter--;
+        $('#game-timer').text(counter);
+
+        if (counter == 0) {
+            // Display a login box
+            $("#game-container").show();
+            $('#game-timer-container').hide();
+            $("#game").addClass("animated bounceInLeft");
+            console.log(gameObject);
+
+            startGame();
+            clearInterval(interval);
+        }
+    }, 1000);
+
 }
 function startGame() {
     gameUrl = "getquote";
