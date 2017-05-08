@@ -13,9 +13,28 @@ def home(request):
 
 
 def highscores(request):
-    highscores = Score.objects.all().order_by("-score")
-    return render(request,"highscores.html",{"highscores": highscores})
+    highscores = makeLeaderboard()
+    gold = highscores.pop(0)
+    silver = highscores.pop(0)
+    bronze = highscores.pop(0)
+    return render(request,"highscores.html",{"highscores": highscores,"gold":gold,"silver":silver,"bronze":bronze})
 
+
+def makeLeaderboard():
+    scores = []
+    things = []
+    highscores = Score.objects.all()
+    for score in highscores:
+        scores.append(score.score)
+    scores.sort(reverse=True)
+    for i in range (len(scores)):
+        for person in highscores:
+            if(scores[i] == person.score):
+                things.append(person)
+                break
+    return things
+
+    return objects
 def readJSONToDatabase():
     with open('quotes.json') as data_file:
         data = json.load(data_file)
