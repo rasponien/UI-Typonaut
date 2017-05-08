@@ -64,33 +64,30 @@ function registerName() {
 
 
 
-    gameObject.name = name;
+    startGame();
 
+}
+function startGame() {
+    gameObject.name = name;
     $("#main-container").hide();
     var counter = 3;
-
-
     $('#game-timer-container').show();
     $('#game-timer').addClass("animated fadeIn")
     var interval = setInterval(function() {
         counter--;
-        $('#game-timer').text(counter);
 
+        $('#game-timer').text(counter);
         if (counter == 0) {
             // Display a login box
             $("#game-container").show();
-             $('#game-timer').removeClass("fadeIn")
-             $('#game-timer').addClass("fadeOut")
+            $('#game-timer').removeClass("fadeIn")
+            $('#game-timer').addClass("fadeOut")
             $("#game").addClass("animated bounceInLeft");
-            console.log(gameObject);
 
-            startGame();
+            console.log(gameObject);
             clearInterval(interval);
         }
     }, 1000);
-
-}
-function startGame() {
     gameUrl = "getquote";
     jQuery.get(gameUrl, function(response){
         console.log(response);

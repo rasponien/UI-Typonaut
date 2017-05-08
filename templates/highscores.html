@@ -11,41 +11,47 @@
 
 
      <div class="menu-option">
-         <a href="../#">Go to homepage</a>
+         <a href="../#">BACK TO MAIN MENU</a>
      </div>
 
      <h1 class="leaderboard">Leaderboard</h1>
 
     <table style="width:60%; margin:auto; margin-bottom: 50px;"class="table">
-        <tr class="white">
+        <tr class="header">
             <th>Username</th>
             <th>Time</th>
             <th>Score</th>
         </tr>
 
-        <tr class="gold">
+        <tr class="gold data">
             <td >{{gold.user_name}}</td>
             <td>{{gold.time}}</td>
             <td>{{gold.score}}</td>
-            <td style="border-color: black;"><img style="height:30px;width:30px;" src="{% static 'images/goldme.png' %}"></td>
+            <td class="medal">
+                <img src="{% static 'images/goldme.png' %}">
+            </td>
 
         </tr>
-        <tr class="silver">
+        <tr class="silver data">
             <td>{{silver.user_name}}</td>
             <td>{{silver.time}}</td>
             <td>{{silver.score}}</td>
-            <td style="border-color: black;"><img style="height:30px;width:30px;" src="{% static 'images/silver.png' %}" ></td>
+            <td class="medal">
+                <img src="{% static 'images/silver.png' %}" >
+            </td>
 
         </tr>
-        <tr class="bronze">
+        <tr class="bronze data">
             <td>{{bronze.user_name}}</td>
             <td>{{bronze.time}}</td>
             <td>{{bronze.score}}</td>
-            <td  style="border-color: black;"><img style="height:30px;width:30px;" src="{% static 'images/bronze.png' %}"></td>
+            <td class="medal">
+                <img src="{% static 'images/bronze.png' %}">
+            </td>
 
         </tr>
         {%for position in highscores%}
-        <tr class="white">
+        <tr class="white data">
             <td>{{position.user_name}}</td>
             <td>{{position.time}}</td>
             <td>{{position.score}}</td>
