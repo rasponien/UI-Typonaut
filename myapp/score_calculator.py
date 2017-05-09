@@ -1,7 +1,7 @@
 import distance # pip install distance
 from myapp.constants import BRONZE, SILVER, GOLD, NONE
-LPS_CHEATER = 14
-LPS_GOLD = 7
+LPS_CHEATER = 10
+LPS_GOLD = 6
 LPS_SILVER = 5
 LPS_BRONZE = 3
 CHAR_SCORE = 100
