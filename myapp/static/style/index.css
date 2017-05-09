@@ -262,7 +262,7 @@ a:focus, a:hover {
     border-radius: 15px;
     margin: 5px 0 0 0;
     background: #888;
-    border: 4px solid #f3f;
+    border: 2px solid #f3f;
     font-size: 22px;
 }
 
@@ -271,6 +271,7 @@ a:focus, a:hover {
 
 .btn-start-game {
     height: 50px;
+
 }
 
 .btn:hover {
@@ -278,4 +279,11 @@ a:focus, a:hover {
     -webkit-transition: background-color 300ms linear;
     -ms-transition: background-color 300ms linear;
     transition: background-color 300ms linear;
+}
+
+#start-game-options {
+    position: relative;
+    height: 100%;
+    margin: 65px 0;
+    max-height: 860px;
 }

@@ -10,8 +10,6 @@ import myapp.score_calculator
 def home(request):
     return render(request,"index.html")
 
-
-
 def highscores(request):
     highscores = makeLeaderboard()
     gold = highscores.pop(0)
@@ -34,17 +32,11 @@ def makeLeaderboard():
                 break
     return things
 
-    return objects
 def readJSONToDatabase():
     with open('quotes.json') as data_file:
         data = json.load(data_file)
-
     for line in data:
         Sentence(sentence=line['quote'],author=line['author']).save()
-
-def game(request):
-    "Returns game.html"
-    return render(request, "game.html")
 
 def getQuote(request):
     "Retrieves a random quote"
