@@ -19,7 +19,7 @@
                 <div id="register-form">
                     <div id="register-name">Your nickname for the leaderboard:</div>
                     <input type="text" id="namefield" class="col-12" autofocus>
-                    <button class="btn btn-primary" onclick="registerName()">Play</button>
+                    <button class="btn btn-start-game" onclick="registerName()">Play</button>
                 </div>
             </div>
             <div class="animated bounceInRight" id="lower-half-circle"></div>
@@ -45,6 +45,17 @@
             </div>
             <div id="write-box">
                 <input type="text" id="answer" class="write-box">
+            </div>
+        </div>
+        <div id="results" class="animated bounceInLeft">
+            <div id="medal"></div>
+            <div class="score"></div>
+            <div class="score bronze"></div>
+            <div class="score silver"></div>
+            <div class="score gold"></div>
+            <div id="buttonbar">
+                <input class="btn btn-play-more" type="button" value="Play more!"/>
+                <input class="btn btn-main-page" type="button" value="Back to main page"/>
             </div>
         </div>
     </div>
