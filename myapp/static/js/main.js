@@ -158,11 +158,15 @@ function getResults() {
             if (response.medal == "None") { textColor = "#999"; }
             if (response.medal == "Bronze") { textColor = "#cd7f32"; }
             if (response.medal == "Silver") { textColor = "silver"; }
-            if (response.medal == "gold") { textColor = "gold"; }
-
-
+            if (response.medal == "Gold") { textColor = "gold"; }
+            if (response.medal === "None"){
+                medalbanner = "No medal.";
+            } else {
+                medalbanner = response.medal + " medal!";
+            }
+            
             $("#medal").css("color",textColor);
-            $("#medal").text(response.medal + " medal!");
+            $("#medal").text(medalbanner);
             $(".score").text("Your score: " + response.score);
             $(".score.bronze").text("Bronze score: " + response.bronze_score);
             $(".score.silver").text("Silver score: " + response.silver_score);
