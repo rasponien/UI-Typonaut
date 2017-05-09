@@ -7,7 +7,6 @@
 $(".btn.btn-play-more").click(function () {
     $("#results").removeClass("bounceInLeft");
     $("#results").addClass("bounceOutRight");
-
     startGame();
 });
 
@@ -16,35 +15,40 @@ $(".btn.btn-main-page").click(function () {
 });
 
 
+$("#new-game").click(openRegistrationForm);
 
-$("#new-game").click(function () {
-    $("#main-options").removeClass('fadeIn');
-    $("#main-options").addClass('fadeOut');
+function openRegistrationForm() {
+
+    // hide options - start game and highscores
     $("#main-options").hide();
 
-    $(function () {
-        $("#upper-half-circle").animate({
-            margin: "0px auto"
-        }, { duration: 400, queue: false });
-        $("#lower-half-circle").animate({
-            margin: "0px auto"
-        }, { duration: 400, queue: false });
-        $("#game-name").animate({
-            padding: "60px 0 15px 0"
-        }, { duration: 400, queue: false });
-        $("#middle-part").show();
-        $("#middle-part").animate({
+    // slide upper half-circle up and lower half-circle down
+    $("#upper-half-circle").animate({
+        margin: "0px auto"
+    }, { duration: 500, queue: false });
+    $("#lower-half-circle").animate({
+        margin: "0px auto"
+    }, { duration: 500, queue: false });
+
+    // slide game-name down (Typonaut)
+    $("#game-name").animate({
+        padding: "60px 0 15px 0"
+    }, { duration: 500, queue: false });
+
+    
+    $("#middle-part").show();
+    $("#middle-part").animate({
             height: "300px"
-        }, { duration: 400, queue: true });
+    }, { duration: 500, queue: true });
+    setTimeout(function (){
         $("#register-form").animate({
             opacity: 1
-        }, { duration: 1000, queue: true });
+    }, { duration: 600, queue: true });
+    }, 400);
 
 
+}
 
-
-    });
-});
 
 
 // game logic here
@@ -150,6 +154,9 @@ function getResults() {
         },
         "success": function (response) {
             var textColor = "";
+            var medalText = (response.medal == "None") ? "No" : response.medal;
+
+
             console.log(response);
 
             if (response.medal == "None") { textColor = "#999"; }
@@ -159,7 +166,7 @@ function getResults() {
 
 
             $("#medal").css("color",textColor);
-            $("#medal").text(response.medal + " medal!");
+            $("#medal").text(medalText + " medal!");
             $(".score").text("Your score: " + response.score);
             $(".score.bronze").text("Bronze score: " + response.bronze_score);
             $(".score.silver").text("Silver score: " + response.silver_score);
