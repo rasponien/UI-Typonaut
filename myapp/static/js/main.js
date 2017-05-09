@@ -98,7 +98,8 @@ function startGame() {
     gameObject.name = name;
     $("#main-container").hide();
     $("game-container").hide();
-    $('#game-timer').addClass("fadeIn")
+    $('#game-timer').addClass("fadeIn").after();
+   
 
 
     var counter = 3;
@@ -118,9 +119,13 @@ function startGame() {
             setTimeout(function (){
                 $('#game-timer').text(3);
             }, 500);
+            $("#answer").focus();
+            startTime = new Date().getTime();
             clearInterval(interval);
+            
         }
     }, 1000);
+    
     $('#game-timer').removeClass("fadeOut")
     gameUrl = "getquote";
     jQuery.get(gameUrl, function(response){
@@ -129,10 +134,8 @@ function startGame() {
         $("#gamecontent").removeClass("hidden");
         $("#quote").text('"' + gameObject.quote.quote + '"');
         $("#author").text('- ' + gameObject.quote.author);
-        $("#answer").focus();
-        startTime = new Date().getTime();
     });
-
+    setTim$('#answer').focus()
 
 
 }
